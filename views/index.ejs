@@ -1,0 +1,70 @@
+<!-- views/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posts</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      background-color: #3498db;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      margin: 10px 0;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #333333;
+    }
+
+    p {
+      color: #555555;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Posts</h1>
+
+  <% if (posts.length > 0) { %>
+    <ul>
+      <% posts.forEach(post => { %>
+        <li>
+          <h2><%= post.title %></h2>
+          <p><%= post.body %></p>
+          <p>Category: <%= post.category %></p>
+          <p>Likes: <%= post.likes %></p>
+          <p>Tags: <%= post.tags.join(', ') %></p>
+          <p>Date: <%= post.date %></p>
+        </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>No posts available.</p>
+  <% } %>
+</body>
+
+</html>
